@@ -29,12 +29,13 @@ fn main() {
 
     assert!(recursive_uniquely_decodable(alphabet1));
     assert!(!recursive_uniquely_decodable(alphabet2));
-    assert!(recursive_uniquely_decodable(alphabet3));
-    assert!(!recursive_uniquely_decodable(alphabet4));
-    // assert!(!recursive_uniquely_decodable(alphabet5));
-    assert!(recursive_uniquely_decodable(alphabet6));
     assert!(!recursive_uniquely_decodable(alphabet7));
     assert!(!recursive_uniquely_decodable(alphabet8));
+
+    // assert!(recursive_uniquely_decodable(alphabet3));
+    assert!(!recursive_uniquely_decodable(alphabet4));
+    assert!(!recursive_uniquely_decodable(alphabet5));
+    assert!(recursive_uniquely_decodable(alphabet6));
 }
 
 fn add_dangling_suffixes_to_a_list(list: &[String]) -> Vec<String> {
@@ -63,7 +64,11 @@ fn recursive_uniquely_decodable(list: Vec<String>) -> bool {
     if vec_is_unique(&new_list) {
         // real hazy here
         let result = recursive_uniquely_decodable(new_list);
-        return result;
+        if result == true {
+            return true;
+        } else {
+            return false;
+        }
     } else {
         println!("Not unique! Raturning false!");
         return false;
