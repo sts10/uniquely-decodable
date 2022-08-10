@@ -10,10 +10,10 @@ fn main() {
     ];
     let c = vec_to_hash(&c);
 
-    let final_set = generate_c_infinity_with_a_halt_break(c.clone());
-    println!("Final: {:?}", final_set);
-    println!("--------------");
-    check_decodability(c);
+    // let final_set = generate_c_infinity_with_a_halt_break(c.clone());
+    // println!("Final: {:?}", final_set);
+    // println!("--------------");
+    check_decodability(&c);
     for e in c {
         println!("Test! {:?}", e);
     }
@@ -93,7 +93,7 @@ fn sardinas_patterson_theorem(c: HashSet<String>) -> bool {
 }
 
 // Maybe should take a &HashSet ?
-fn check_decodability(c: HashSet<String>) {
+fn check_decodability(c: &HashSet<String>) {
     if sardinas_patterson_theorem(c.clone()) {
         println!("{:?} is uniquely decodable", c);
     } else {
