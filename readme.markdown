@@ -2,7 +2,13 @@ I'm trying to implement [the Sardinas–Patterson algorithm](https://en.wikipedi
 
 Ultimately I'd like to fold it into [Tidy](https://github.com/sts10/tidy). 
 
+## Status 
+
+I think it's working, though it's untested and slow. 
+
 ## Some links
+
+https://github.com/danhales/blog-sardinas-patterson
 
 https://www.youtube.com/watch?v=8YNEVyHCIjs
 
