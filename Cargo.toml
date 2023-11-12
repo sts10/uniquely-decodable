@@ -11,9 +11,9 @@ edition = "2021"
 criterion = "0.5.1"
 
 [[bench]]
-name = "short_lists"
+name = "short_list"
 harness = false
 
 [[bench]]
-name = "medium_lists"
+name = "medium_list"
 harness = false

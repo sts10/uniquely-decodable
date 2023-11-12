@@ -9,16 +9,16 @@ use uniquely_decodable::*;
 
 fn criterion_benchmark(c: &mut Criterion) {
     // Define a Criterion group, just so we can set a sample_size and significance_level
-    let mut short_list_group = c.benchmark_group("Check short UD lists");
-    short_list_group.sample_size(100).significance_level(0.1);
+    let mut medium_list_group = c.benchmark_group("Check medium, not UD list");
+    medium_list_group.sample_size(10).significance_level(0.1);
 
-    let ud_list: Vec<String> = read_by_line("./tests/test-files/ud/eff-sample.txt".into()).unwrap();
+    let ud_list: Vec<String> = read_by_line("./benches/medium-not-ud-list.txt".into()).unwrap();
 
-    short_list_group.bench_function("Schlinkert", |b| {
+    medium_list_group.bench_function("Schlinkert", |b| {
         b.iter(|| schlinkert::is_uniquely_decodable(&ud_list))
     });
 
-    short_list_group.bench_function("Colfenor-Rodeh", |b| {
+    medium_list_group.bench_function("Colfenor-Rodeh", |b| {
         b.iter(|| colfenor_rodeh::is_uniquely_decodable(&ud_list))
     });
 
