@@ -10,16 +10,26 @@ use uniquely_decodable::*;
 fn criterion_benchmark(c: &mut Criterion) {
     // Define a Criterion group, just so we can set a sample_size and significance_level
     let mut group = c.benchmark_group("Check unique decodability");
-    group.sample_size(100).significance_level(0.1);
+    group.sample_size(10).significance_level(0.1);
 
-    let list: Vec<String> = read_by_line("./tests/test-files/ud/eff-sample.txt".into()).unwrap();
+    let ud_list: Vec<String> = read_by_line("./tests/test-files/ud/eff-sample.txt".into()).unwrap();
+    let not_ud_list: Vec<String> =
+        read_by_line("./tests/test-files/not-ud/bips.txt".into()).unwrap();
 
-    group.bench_function("Schlinkert", |b| {
-        b.iter(|| schlinkert::is_uniquely_decodable(&list))
+    group.bench_function("Schlinkert UD", |b| {
+        b.iter(|| schlinkert::is_uniquely_decodable(&ud_list))
     });
 
-    group.bench_function("Colfenor Rodeh", |b| {
-        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&list))
+    group.bench_function("Colfenor Rodeh UD", |b| {
+        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&ud_list))
+    });
+
+    group.bench_function("Schlinkert not-UD", |b| {
+        b.iter(|| schlinkert::is_uniquely_decodable(&not_ud_list))
+    });
+
+    group.bench_function("Colfenor Rodeh not-UD", |b| {
+        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&not_ud_list))
     });
 
     fn read_by_line<T: FromStr>(file_path: PathBuf) -> io::Result<Vec<T>>
