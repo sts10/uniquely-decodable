@@ -17,3 +17,11 @@ harness = false
 [[bench]]
 name = "medium_list"
 harness = false
+
+[[bench]]
+name = "long_ud_list"
+harness = false
+
+[[bench]]
+name = "long_not_ud_list"
+harness = false

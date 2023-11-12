@@ -8,18 +8,17 @@ use std::str::FromStr;
 use uniquely_decodable::*;
 
 fn criterion_benchmark(c: &mut Criterion) {
-    // Define a Criterion group, just so we can set a sample_size and significance_level
-    let mut group = c.benchmark_group("Check short UD list");
-    group.sample_size(100).significance_level(0.1);
+    let mut group = c.benchmark_group("Check long, UD list");
+    group.sample_size(10);
 
-    let ud_list: Vec<String> = read_by_line("./benches/lists/short-ud-list.txt".into()).unwrap();
+    let list: Vec<String> = read_by_line("./benches/lists/long-ud.txt".into()).unwrap();
 
     group.bench_function("Schlinkert", |b| {
-        b.iter(|| schlinkert::is_uniquely_decodable(&ud_list))
+        b.iter(|| schlinkert::is_uniquely_decodable(&list))
     });
 
     group.bench_function("Colfenor-Rodeh", |b| {
-        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&ud_list))
+        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&list))
     });
 
     fn read_by_line<T: FromStr>(file_path: PathBuf) -> io::Result<Vec<T>>
