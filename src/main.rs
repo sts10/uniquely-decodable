@@ -1,5 +1,5 @@
-pub mod sardinas_patterson;
-use crate::sardinas_patterson::is_uniquely_decodable;
+pub mod colfenor_rodeh;
+use crate::colfenor_rodeh::is_uniquely_decodable;
 
 fn main() {
     let code: Vec<String> = vec![
