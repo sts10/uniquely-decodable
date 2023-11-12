@@ -13,13 +13,13 @@ fn criterion_benchmark(c: &mut Criterion) {
 
     let list: Vec<String> = read_by_line("./benches/lists/long-ud.txt".into()).unwrap();
 
-    group.bench_function("Schlinkert", |b| {
-        b.iter(|| schlinkert::is_uniquely_decodable(&list))
-    });
+    // group.bench_function("Schlinkert", |b| {
+    //     b.iter(|| schlinkert::is_uniquely_decodable(&list))
+    // });
 
-    group.bench_function("Colfenor-Rodeh", |b| {
-        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&list))
-    });
+    // group.bench_function("Colfenor-Rodeh", |b| {
+    //     b.iter(|| colfenor_rodeh::is_uniquely_decodable(&list))
+    // });
 
     fn read_by_line<T: FromStr>(file_path: PathBuf) -> io::Result<Vec<T>>
     where
