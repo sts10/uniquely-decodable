@@ -9,4 +9,12 @@ fn main() {
         "1".to_string(),
     ];
     assert!(is_uniquely_decodable(&code));
+
+    let code: Vec<String> = vec![
+        "car".to_string(),
+        "pet".to_string(),
+        "carpet".to_string(),
+        "convertible".to_string(),
+    ];
+    assert!(!is_uniquely_decodable(&code));
 }
