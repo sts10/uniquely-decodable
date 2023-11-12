@@ -6,7 +6,7 @@ I _think_ that best way to do this is to implement [the Sardinas–Patterson alg
 
 So far this project includes two implementations of Sardinas-Patterson:
 * The one Sam Schlinkert wrote for [Tidy](https://github.com/sts10/) (`src/schlinkert.rs`)
-* [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), apparently based on [this paper by Micahel Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`)
+* [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), apparently based on [this paper by Michael Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`)
 
 ## Running tests
 ```
