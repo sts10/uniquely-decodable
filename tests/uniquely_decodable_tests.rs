@@ -50,7 +50,6 @@ mod uniquely_decodable_tests {
     use std::str::FromStr;
 
     /// Generatic function that reads a file in, line by line.
-    /// Not sure if all of this is necessary, but it gets the job done.
     fn read_by_line<T: FromStr>(file_path: PathBuf) -> io::Result<Vec<T>>
     where
         <T as std::str::FromStr>::Err: std::fmt::Debug,

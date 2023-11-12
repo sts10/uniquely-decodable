@@ -1,10 +1,27 @@
 # Checks for unique decodability
 
-This repo is an informal collection of implementations of [the Sardinas–Patterson algorithm](https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm), which is a test for **unique decodability**.
+This repo is an informal collection of functions that check whether a given list of code words is **uniquely decodabel**.
 
-So far it includes my slow implementation (`src/schlinkert.rs`) and [an implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), based on [this paper by Micahel Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`).
+I _think_ that best way to do this is to implement [the Sardinas–Patterson algorithm](https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm), but it might not be the only way?
 
-I'm hoping to add a large number of tests and sufficient benchmarks soon.
+So far this project includes two implementations of Sardinas-Patterson:
+* The one Sam Schlinkert wrote for [Tidy](https://github.com/sts10/) (`src/schlinkert.rs`)
+* [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), based on [this paper by Micahel Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`)
+
+## Running tests
+```
+cargo test
+```
+
+## Running benchmarks
+This project uses [Criterion.rs](https://github.com/bheisler/criterion.rs) v0.5 to benchmark.
+```
+cargo bench
+```
+
+## Adding your own procedure/implementation
+
+I 100% welcome and encourage you to contribute to this project, either with your own implementation of Sardinas-Patterson, or some other way of checking unique decodability. See the current modules for requirements.
 
 ## Reference URLs
 
