@@ -2,6 +2,10 @@
 
 This repo is an informal collection of implementations of [the Sardinas–Patterson algorithm](https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm), which is a test for **unique decodability**.
 
+So far it includes my slow implementation (`src/schlinkert.rs`) and [an implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), based on [this paper by Micahel Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`).
+
+I'm hoping to add a large number of tests and sufficient benchmarks soon.
+
 ## Reference URLs
 
 * https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm
