@@ -1,6 +1,7 @@
 /* sardinas patterson algorithm for testing unique decipherability */
 // reference: IEEE TRANSACTIONS ON INFORMATION THEORY, VOL. IT-28, NO. 4, JULY 1982
 // https://github.com/Colfenor/sardinas-patterson
+// With improvements from @westonal
 
 fn duplicates_inside(vector: &Vec<String>) -> bool {
     let mut vector_copy = vec![];
@@ -26,11 +27,11 @@ pub fn is_uniquely_decodable(codeword_list: &Vec<String>) -> bool {
     // E1.2
     for i in codeword_list {
         for j in codeword_list {
-            if i != j && i.chars().count() > j.chars().count() && i.find(j) == Some(0) {
+            if i != j && i.len() > j.len() && i.starts_with(j) {
                 // E1.1
                 //todo extract suffix and save in vector
-                let suffix = &i[j.chars().count()..];
-                tails.push(String::from(suffix));
+                let suffix = &i[j.len()..];
+                tails.push(suffix);
                 // println!("{}\n", suffix);
             }
         }
@@ -43,19 +44,19 @@ pub fn is_uniquely_decodable(codeword_list: &Vec<String>) -> bool {
             if &tails[i] == j {
                 return false;
             }
-            let mut sigma = String::new();
+            let sigma = if tails[i].len() > j.len() && tails[i].starts_with(j) {
+                &tails[i][j.len()..]
+            } else if tails[i].len() < j.len() && j.starts_with(&tails[i]) {
+                &j[tails[i].len()..]
+            } else {
+                ""
+            };
 
-            if tails[i].chars().count() > j.chars().count() && tails[i].find(j) == Some(0) {
-                sigma = tails[i][j.chars().count()..].to_owned();
-            } else if tails[i].chars().count() < j.chars().count() && j.find(&tails[i]) == Some(0) {
-                sigma = j[tails[i].chars().count()..].to_owned();
-            }
+            let mut tail_concat = tails[i].to_string();
+            let mut word_concat = j.to_string();
 
-            let mut tail_concat = tails[i].to_owned();
-            let mut word_concat = j.to_owned();
-
-            word_concat.push_str(&sigma);
-            tail_concat.push_str(&sigma);
+            word_concat.push_str(sigma);
+            tail_concat.push_str(sigma);
 
             if &tail_concat == j || word_concat == tails[i] {
                 tails.push(sigma);
