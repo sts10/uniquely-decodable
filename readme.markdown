@@ -6,7 +6,7 @@ I _think_ that best way to do this is to implement [the Sardinas–Patterson alg
 
 So far this project includes two implementations of Sardinas-Patterson:
 * The one Sam Schlinkert wrote for [Tidy](https://github.com/sts10/) (`src/schlinkert.rs`)
-* [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), apparently based on [this paper by Michael Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`)
+* [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), apparently based on [this paper by Michael Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`). Seems to be very fast detecting if a list is not uniquely decodable, but struggles with longer (8,000-word) uniquely decodable lists?
 
 ## Running tests
 ```

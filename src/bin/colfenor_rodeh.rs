@@ -10,8 +10,11 @@ use uniquely_decodable::colfenor_rodeh::is_uniquely_decodable;
 fn main() {
     let args: Vec<String> = env::args().collect();
     let file_path = &args[1];
+    println!("Read file_path as {}", file_path);
     let wordlist: Vec<String> =
         read_by_line(file_path.into()).expect("Unable to read inputted file");
+
+    println!("Word list has {} words", wordlist.len());
 
     println!("Uniquely decodable? {}", is_uniquely_decodable(&wordlist));
 }
