@@ -13,7 +13,7 @@ pub fn is_uniquely_decodable<T: AsRef<str>>(c: &[T]) -> bool {
     sardinas_patterson_theorem(c.iter().map(|f| f.as_ref()).collect())
 }
 
-// Generate c for any number n
+/// Generate c for any number n
 fn generate_cn<'a>(c: &HashSet<&'a str>, cn_minus_1: &HashSet<&'a str>) -> HashSet<&'a str> {
     let mut cn = HashSet::new();
 
@@ -44,7 +44,8 @@ fn generate_c_infinity_with_a_halt_break<'a>(c: &'a HashSet<&str>) -> HashSet<&'
         cn = generate_cn(c, &cn);
         let prior = cs.len();
         cs.extend(&cn);
-        if cs.len() == prior { // if the set size did not increase, cn is a subset
+        if cs.len() == prior {
+            // if the set size did not increase, cn is a subset
             // Cycle detected. Halting algorithm.
             break;
         }
