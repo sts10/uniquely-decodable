@@ -19,9 +19,9 @@ fn criterion_benchmark(c: &mut Criterion) {
         b.iter(|| schlinkert::is_uniquely_decodable(&ud_list))
     });
 
-    group.bench_function("Colfenor-Rodeh", |b| {
-        b.iter(|| colfenor_rodeh::is_uniquely_decodable(&ud_list))
-    });
+    // group.bench_function("Colfenor-Rodeh", |b| {
+    //     b.iter(|| colfenor_rodeh::is_uniquely_decodable(&ud_list))
+    // });
 
     fn read_by_line<T: FromStr>(file_path: PathBuf) -> io::Result<Vec<T>>
     where
