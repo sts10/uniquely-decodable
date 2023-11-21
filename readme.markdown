@@ -1,9 +1,13 @@
 # Checks for unique decodability
 
-This repo is an informal collection of functions that check whether a given list of code words is **uniquely decodable**.
+This repo is an informal collection of functions that (attempt to) check whether a given list of code words is **uniquely decodable**.
 
-I _think_ that best way to do this is to implement [the Sardinas–Patterson algorithm](https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm), but it might not be the only way?
+**Note**: If you're **just looking to check if a word list is uniquely decodable**, I'd point you to my [Word List Auditor](https://github.com/sts10/wla) tool.
 
+## A hypothesis
+I _think_ that best way to do check if a list is uniquely decodable is to implement [the Sardinas–Patterson algorithm](https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm), but it might not be the only way?
+
+## Included implementations of Sardinas-Patterson
 So far this project includes two implementations of Sardinas-Patterson:
 * The one Sam Schlinkert wrote for [Tidy](https://github.com/sts10/) (`src/schlinkert.rs`)
 * [An implementation by GitHub user @Colfenor](https://github.com/Colfenor/sardinas-patterson), apparently based on [this paper by Michael Rodeh](https://ieeexplore.ieee.org/document/1056535) (`src/colfenor_rodeh.rs`). Seems to be very fast detecting if a list is not uniquely decodable, but struggles with longer (8,000-word) uniquely decodable lists?
@@ -18,7 +22,7 @@ This project uses [Criterion.rs](https://github.com/bheisler/criterion.rs) v0.5 
 ```
 cargo bench
 ```
-FYI it takes about 10 minutes to run all of the benchmarks currently!
+FYI running all benchmarks can take a few minutes, depending on which are commented in and out.
 
 ## Adding your own procedure/implementation
 
