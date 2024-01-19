@@ -7,6 +7,7 @@ default-run = "uniquely_decodable"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dashmap = "5.5.3"
 
 [dev-dependencies]
 criterion = "0.5.1"
