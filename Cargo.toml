@@ -26,3 +26,21 @@ harness = false
 [[bench]]
 name = "long_not_ud_list"
 harness = false
+
+[lib]
+bench = false
+
+[[bin]]
+name = "uniquely_decodable"
+path = "src/main.rs"
+bench = false
+
+[[bin]]
+name = "colfenor_rodeh"
+path = "src/bin/colfenor_rodeh.rs"
+bench = false
+
+[[bin]]
+name = "schlinkert"
+path = "src/bin/schlinkert.rs"
+bench = false
